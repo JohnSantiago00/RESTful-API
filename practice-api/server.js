@@ -20,7 +20,7 @@ app.get("/books", (req, res) => {
 // Get a specific book
 app.get("/books/:id", (req, res) => {
   const bookId = parseInt(req.params.id, 10);
-  const book = books.find((job) => books.id === bookId);
+  const book = books.find((book) => book.id === bookId);
   if (book) {
     res.send(book);
   } else {
@@ -37,7 +37,7 @@ app.post("/books", (req, res) => {
   };
   console.log("newBook", newBook);
   books.push(newBook);
-  res.send(newBook);
+  res.status(201).send(newBook);
 });
 
 // Update a specific book
